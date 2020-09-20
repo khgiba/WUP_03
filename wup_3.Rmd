@@ -36,9 +36,23 @@ basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='e
 ```
 
 ## Numerical Summarys 
-
+```{r}
+favstats(alcohol~Seat,data=davisdata )
+```
 ## Inferential Tests
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+```{r}
+#we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
+par(mar = c(3, 8.7, 2, 2))
+plot(TukeyHSD(model1),las=2)
+```
+  
+## Conclusions    
 
-## Conclusions
+It appears from the favspots that there are three different rows of seats where there was not a difference.
 
-
+The P value is 0.000116 < 0.05 the null hypothesis is extremely unlikely; we reject the null hypothesis.
+We conclude that there is a difference in which row of seat drinks more alcohol. We conclude that by sitting in the Middle-Front you drink more. 
