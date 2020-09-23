@@ -18,7 +18,8 @@ davisdata <- read.csv(file="UCDavis.csv")
 ## you choose to sit in??
 
 ## Now with ggplot - first select the basic data
-
+$H_O$: There is no difference among the mean amount of alcohol consumed per week by row.  
+$H_A$ There is a difference in alcohol amount consumed per week per row.  
 ```{r}
 basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 ```
@@ -52,7 +53,8 @@ plot(TukeyHSD(model1),las=2)
   
 ## Conclusions    
 
-It appears from the favspots that there are three different rows of seats where there was not a difference.
+It appears from the TukeyHSD that there there is a difference in the amount of alcohol consumed. when sitting in the Middle-Front you consumed.  Where sitting in the front-back or Middle back there is no really big difference.   
 
-The P value is 0.000116 < 0.05 the null hypothesis is extremely unlikely; we reject the null hypothesis.
-We conclude that there is a difference in which row of seat drinks more alcohol. We conclude that by sitting in the Middle-Front you drink more. 
+The P value is less than 0.05, therefore the null hypothesis is extremely unlikely; we reject the null hypothesis.  
+
+We conclude that there is a difference, that if you sit in the Middle-Front instead of the Front-Back or Middle-Back you tend to drink more.
